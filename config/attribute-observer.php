@@ -18,6 +18,8 @@ return [
     */
 
     'observers' => [
-        // Define your model & attribute observers here...
+        \App\Models\User::class => [
+            \App\AttributeObservers\UserEmailObserver::class,
+        ]
     ]
 ];
