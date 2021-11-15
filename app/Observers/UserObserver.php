@@ -10,7 +10,7 @@ class UserObserver
 {
     public function updated(User $user)
     {
-        if ($user->email !== $user->getOriginal('email')) {
+        if ($user->wasChanged('email')) {
             Mail::to('admin@admin.com')
                 ->send(new UserChangedEmail($user, $user->email, $user->getOriginal('email')));
         }
